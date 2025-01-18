@@ -7,7 +7,6 @@ Title: Hacker Room - Stylized
 */
 
 import * as THREE from 'three'
-import { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 
