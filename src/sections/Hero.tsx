@@ -1,10 +1,22 @@
-import { PerspectiveCamera } from "@react-three/drei"
+import { ContactShadows, Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-import { PcRoom } from "../components/PcRoom"
+
 import { Suspense } from "react"
 import { CanvasLoader } from "../components/CanvasLoader"
+import { useMediaQuery } from "react-responsive"
+import { calculateSizes } from "../constants"
+import { Target } from "../components/Target"
+import { NoteBook } from "../components/NoteBook"
+
 
 export const Hero = () => {
+  
+  const isSmall = useMediaQuery({ maxWidth: 480 })
+  const isMobile = useMediaQuery({ maxWidth: 768 })
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 })
+
+  const sizes = calculateSizes(isSmall, isMobile, isTablet)
+
   return (
     <section className="min-h-screen w-full flex flex-col relative">
       <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
@@ -16,16 +28,22 @@ export const Hero = () => {
         </p>
       </div>
 
-      <div className="w-full h-full absolute inset-0">
+      <div className="w-full h-full absolute inset-0" >
+        {/* <Leva />  */}
         <Canvas className="w-full h-full">
+          <PerspectiveCamera makeDefault position={[-5, 0, -15]} />
+          <pointLight position={[10, 10, 10]} intensity={1.5} />
           <Suspense fallback={<CanvasLoader />}>
-            <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-            
-            <PcRoom scale={0.07} position={[0, 0, 0]} rotation={[0, 285, 0]} />
-
-            <ambientLight intensity={1} />
-            <directionalLight intensity={0.5} position={[10, 10, 10]} />
+            <group 
+              rotation={[0, 3.5, 0]} 
+              position={sizes.notebookPosition} 
+              scale={sizes.notebookScale}>
+              <NoteBook />
+            </group>
+            <Environment preset="city" />
           </Suspense>
+          <ContactShadows position={[0, -4.5, 0]} scale={20} blur={2} far={4.5} />
+          <OrbitControls enablePan={false} enableZoom={false} minPolarAngle={Math.PI / 2.2} maxPolarAngle={Math.PI / 2.2} />
         </Canvas>
       </div>
     </section>

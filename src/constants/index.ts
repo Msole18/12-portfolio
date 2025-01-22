@@ -1,3 +1,5 @@
+import { ISizes } from "../types"
+
 export const navLinks = [
   {
     id: 1,
@@ -21,3 +23,24 @@ export const navLinks = [
   },
 ]
 
+export const calculateSizes = (
+  isSmall: boolean,
+  isMobile: boolean,
+  isTablet: boolean
+): ISizes => {
+  return {
+    notebookScale: isSmall ? 0.5 : isMobile ? 0.65 : 0.7,
+    notebookPosition: isSmall
+      ? [0, 0.5, 0]
+      : isMobile
+      ? [0, -2, 0]
+      : [0, -2.2, 0],
+    targetPosition: isSmall
+      ? [-5, -10, -10]
+      : isMobile
+      ? [-9, -10, -10]
+      : isTablet
+      ? [-11, -7, -10]
+      : [-13, -13, -10],
+  }
+}
