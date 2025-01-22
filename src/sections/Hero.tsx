@@ -1,6 +1,6 @@
 import { ContactShadows, Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-import { PcRoom } from "../components/PcRoom"
+
 import { Suspense } from "react"
 import { CanvasLoader } from "../components/CanvasLoader"
 import { useMediaQuery } from "react-responsive"
@@ -8,8 +8,9 @@ import { calculateSizes } from "../constants"
 import { Target } from "../components/Target"
 import { NoteBook } from "../components/NoteBook"
 
-export const Hero = () => {
 
+export const Hero = () => {
+  
   const isSmall = useMediaQuery({ maxWidth: 480 })
   const isMobile = useMediaQuery({ maxWidth: 768 })
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 })
@@ -33,7 +34,10 @@ export const Hero = () => {
           <PerspectiveCamera makeDefault position={[-5, 0, -15]} />
           <pointLight position={[10, 10, 10]} intensity={1.5} />
           <Suspense fallback={<CanvasLoader />}>
-            <group rotation={[0, Math.PI, 0]} position={[0, -1, 0]} scale={0.7}>
+            <group 
+              rotation={[0, 3.5, 0]} 
+              position={sizes.notebookPosition} 
+              scale={sizes.notebookScale}>
               <NoteBook />
             </group>
             <Environment preset="city" />
