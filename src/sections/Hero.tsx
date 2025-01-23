@@ -1,12 +1,12 @@
 import { ContactShadows, Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-
 import { Suspense } from "react"
 import { CanvasLoader } from "../components/CanvasLoader"
 import { useMediaQuery } from "react-responsive"
 import { calculateSizes } from "../constants"
 import { Target } from "../components/Target"
 import { NoteBook } from "../components/NoteBook"
+import { Leva } from "leva"
 
 
 export const Hero = () => {
@@ -29,20 +29,27 @@ export const Hero = () => {
       </div>
 
       <div className="w-full h-full absolute inset-0" >
-        {/* <Leva />  */}
+        <Leva hidden />
         <Canvas className="w-full h-full">
           <PerspectiveCamera makeDefault position={[-5, 0, -15]} />
           <pointLight position={[10, 10, 10]} intensity={1.5} />
           <Suspense fallback={<CanvasLoader />}>
             <group 
-              rotation={[0, 3.5, 0]} 
+              rotation={[0, 3.8, 0]} 
               position={sizes.notebookPosition} 
-              scale={sizes.notebookScale}>
-              <NoteBook />
+              scale={sizes.notebookScale}
+            >
+              <NoteBook/>
+              
+            </group>
+            <group>
+              <Target
+                position={[-1, 10, 30]}
+              />
             </group>
             <Environment preset="city" />
           </Suspense>
-          <ContactShadows position={[0, -4.5, 0]} scale={20} blur={2} far={4.5} />
+          <ContactShadows position={[0, -5.5, 0]} scale={20} blur={2} far={4.5} />
           <OrbitControls enablePan={false} enableZoom={false} minPolarAngle={Math.PI / 2.2} maxPolarAngle={Math.PI / 2.2} />
         </Canvas>
       </div>
