@@ -26,7 +26,8 @@ export const Navbar = () => {
     <header className='fixed top-0 left-0 right-0 z-50 bg-black/90 '>
       <div className='max-w-7xl mx-auto'>
         <div className='flex justify-between items-center py-5 mx-auto c-space'>
-          <a href="/" className="text-neutral-400 font-bold text-xl hover:text-white transition-colors">
+          <a href="/" className="text-neutral-400 font-bold text-2xl hover:text-white transition-colors">
+            {/* <img className="w-12 h-12" src="/assets/ms-logo.svg" alt="logo" />  */}
             Miguel Solé
           </a>
           <button className="text-neutral-400 hover:text-white focus:outline-none sm:hidden flex" onClick={toggleMenu}>
