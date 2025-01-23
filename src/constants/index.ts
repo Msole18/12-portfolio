@@ -34,7 +34,7 @@ export const calculateSizes = (
       ? [0, 0.5, 0]
       : isMobile
       ? [0, -2, 0]
-      : [0, -3.2, 0],
+      : [0, -2, 0],
     targetPosition: isSmall
       ? [-5, -10, -10]
       : isMobile

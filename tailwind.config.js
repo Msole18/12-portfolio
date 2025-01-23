@@ -24,7 +24,7 @@ export default {
         },
       },
       backgroundImage: {
-        terminal: "url('/assets/terminal.png')",
+        hero: "url('/assets/hero-bg.png')",
       },
     },
   },
