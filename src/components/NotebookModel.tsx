@@ -3,6 +3,7 @@ import { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Html, useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { NotebookScreen } from './NotebookScreen'
 
 
 type GLTFResult = GLTF & {
@@ -14,7 +15,7 @@ type GLTFResult = GLTF & {
   };
 }
 
-export const NoteBook = (props: JSX.IntrinsicElements['group']) => {
+export const NotebookModel = (props: JSX.IntrinsicElements['group']) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const group = useRef<THREE.Group>(null)
@@ -77,17 +78,8 @@ export const NoteBook = (props: JSX.IntrinsicElements['group']) => {
                 }}
                 onPointerDown={(e) => e.stopPropagation()}
               >
-                <iframe
-                  src="https://pictlify.vercel.app/" 
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    border: 'none',
-                  }}
-                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-                  title="Pokédex"
-                  onLoad={() => setIsLoading(false)} 
-                />
+                <NotebookScreen onLoad={() => setIsLoading(false)} />
+                
               </div>
             </Html>
           </mesh>

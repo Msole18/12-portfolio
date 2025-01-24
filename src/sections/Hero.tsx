@@ -4,7 +4,7 @@ import { Suspense } from "react"
 import { CanvasLoader } from "../components/CanvasLoader"
 import { useMediaQuery } from "react-responsive"
 import { calculateSizes } from "../constants"
-import { NoteBook } from "../components/NoteBook"
+import { NotebookModel } from "../components/NotebookModel"
 import { Leva } from "leva"
 import { Button } from "../components/Button"
 
@@ -19,14 +19,14 @@ export const Hero = () => {
 
   return (
     <section className="bg-hero min-h-screen w-full flex flex-col relative">
-      <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-1">
+      {/* <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-1">
         <p className="sm:text-3xl text-2xl font-medium text-white text-center font-generalsans">
           Hi, I'm Miguel <span className="waving-hand">👋</span>
         </p>
         <p className="hero_tag text-gray_gradient">
           Front-End Developer
         </p>
-      </div>
+      </div> */}
 
       <div className="w-full h-full absolute inset-0 mt-10" >
         <Leva hidden />
@@ -35,11 +35,11 @@ export const Hero = () => {
           <pointLight position={[10, 10, 10]} intensity={1.5} />
           <Suspense fallback={<CanvasLoader />}>
             <group 
-              rotation={[0, 3.8, 0]} 
-              position={sizes.notebookPosition} 
-              scale={sizes.notebookScale}
+              rotation={[0, 3.72, 0]} 
+              position={[0, 0.5, 0]} 
+              scale={0.95}
             >
-              <NoteBook />
+              <NotebookModel />
             </group>
             <Environment preset="city" />
           </Suspense>
