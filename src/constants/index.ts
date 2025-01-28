@@ -45,7 +45,7 @@ export const myProjects = [
     title: 'Pictlify - Social Media Platform',
     desc: 'Pictlify is a revolutionary Software-as-a-Service platform that allows users to create, share, and interact with posts.',
     subdesc:
-      'Built as a unique Software-as-a-Service app with React, TypeScript, and Vite. The application uses Appwrite for backend services, including authentication, database, and storage.',
+      'Built with React, TypeScript, and Vite. The application uses Appwrite for backend services, including authentication, database, and storage.',
     href: 'https://pictlify.vercel.app/',
     texture: '/textures/project/project1.mp4',
     logo: '/assets/project-logo1.png',

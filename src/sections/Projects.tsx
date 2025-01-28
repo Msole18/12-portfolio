@@ -1,8 +1,20 @@
+import { useState } from "react"
 import { myProjects } from "../constants"
+const projectsCount = myProjects.length
 
 export const Projects = () => {
-  const currentProject = myProjects[0]
+  const [seletedProjectIndex, setSelectedProjectIndex] = useState(0)
+  const currentProject = myProjects[seletedProjectIndex]
 
+  const handleNavigation = (direction: string) => {
+    setSelectedProjectIndex((prevIndex) => {
+      if(direction === 'previous') {
+        return prevIndex === 0 ? projectsCount - 1 : prevIndex - 1
+      } else {
+        return prevIndex === projectsCount - 1 ? 0 : prevIndex + 1
+      }
+    })
+  }
   
   return (
     <section className="c-space my-20">
@@ -50,6 +62,15 @@ export const Projects = () => {
               <p>Check Live Site</p>
               <img src="/assets/arrow-up.png" alt="arrow" className="w-3 h-3" />
             </a>
+          </div>
+
+          <div className="flex justify-between items-center mt-7">
+            <button className="arrow-btn" onClick={() => handleNavigation('previous')}>
+              <img className="w-4 h-4" src="/assets/left-arrow.png" alt="left arrow" />
+            </button>
+            <button className="arrow-btn" onClick={() => handleNavigation('next')}>
+              <img className="w-4 h-4" src="/assets/right-arrow.png" alt="right arrow" />
+            </button>
           </div>
         </div>
       </div>
