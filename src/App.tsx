@@ -5,12 +5,15 @@ import { Projects } from "./sections/Projects"
 
 export const App = () => {
   return (
-    <main className="max-w-8xl mx-auto relative">
-      <Navbar />
-      <Hero />
-      <About />
-      <Projects/>
+    <main className="relative">
+      <div className="max-w-8xl mx-auto">
+        <Navbar />
+        <Hero />
+      </div>
+      <div className="max-w-7xl mx-auto">
+        <About />
+        <Projects />
+      </div>
     </main>
-  )
-}
-
+  );
+};

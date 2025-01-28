@@ -51,24 +51,6 @@ export const NotebookModel = (props: JSX.IntrinsicElements['group']) => {
               transform
               occlude
             >
-              {isLoading && (
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    
-                  }}
-                  onPointerDown={(e) => e.stopPropagation()}
-                >
-                  <h1>Loading...</h1>
-                </div>
-              )}
               <div
                 style={{
                   width: '668px',
@@ -78,7 +60,7 @@ export const NotebookModel = (props: JSX.IntrinsicElements['group']) => {
                 }}
                 onPointerDown={(e) => e.stopPropagation()}
               >
-                <NotebookScreen onLoad={() => setIsLoading(false)} />
+                <NotebookScreen  />
                 
               </div>
             </Html>
