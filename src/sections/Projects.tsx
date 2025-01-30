@@ -1,5 +1,10 @@
-import { useState } from "react"
+import { Suspense, useState } from "react"
 import { myProjects } from "../constants"
+import { Canvas } from "@react-three/fiber"
+import { Center, ContactShadows, OrbitControls } from "@react-three/drei"
+import { CanvasLoader } from "../components/CanvasLoader"
+import { DemoComputer } from "../components/DemoComputer"
+
 const projectsCount = myProjects.length
 
 export const Projects = () => {
@@ -8,19 +13,37 @@ export const Projects = () => {
 
   const handleNavigation = (direction: string) => {
     setSelectedProjectIndex((prevIndex) => {
-      if(direction === 'previous') {
+      if (direction === 'previous') {
         return prevIndex === 0 ? projectsCount - 1 : prevIndex - 1
       } else {
         return prevIndex === projectsCount - 1 ? 0 : prevIndex + 1
       }
     })
   }
-  
+
   return (
     <section className="c-space my-20">
       <p className="head-text">My Word</p>
 
       <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full">
+        <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full">
+          <Canvas>
+            <ambientLight intensity={1} />
+            <directionalLight position={[10, 10, 5]} />
+
+            <Center>
+              <Suspense fallback={<CanvasLoader />} />
+
+              <group scale={0.10} position={[-62.5, 90.5, 0]} rotation={[0.05,-0.15,0]} >
+                <DemoComputer />
+              </group>
+            
+            </Center>
+
+          </Canvas>
+
+        </div>
+
         <div className="flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-black-200">
           <div className="absolute top-0 right-0">
             <img
@@ -73,6 +96,8 @@ export const Projects = () => {
             </button>
           </div>
         </div>
+
+
       </div>
     </section>
   )

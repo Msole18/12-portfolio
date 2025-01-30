@@ -16,10 +16,9 @@ type GLTFResult = GLTF & {
 }
 
 export const NotebookModel = (props: JSX.IntrinsicElements['group']) => {
-  const [isLoading, setIsLoading] = useState(true);
 
-  const group = useRef<THREE.Group>(null)
   const { nodes, materials } = useGLTF('/models/mac-draco.glb') as GLTFResult
+  const group = useRef<THREE.Group>(null)
 
   useFrame((state) => {
     if (!group.current) return;
