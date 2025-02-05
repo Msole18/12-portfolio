@@ -1,20 +1,24 @@
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
+import { useAlert } from "../hooks/useAlert";
+import { Alert } from "../components/Alert";
 
 export const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null)
+  const { alert, showAlert, hideAlert } = useAlert();
   const [loading, setLoading] = useState(false)
   const [form, setForm] = useState({
     name: '',
     email: '',
     message: ''
   })
-  // service_1jg4tmq
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true)
-    try {
-      await emailjs.send(
+
+    emailjs
+      .send(
         import.meta.env.VITE_APP_EMAILJS_USERID,
         import.meta.env.VITE_APP_EMAILJS_TEMPLATEID,
         {
@@ -24,23 +28,47 @@ export const Contact = () => {
           to_email: 'miguel.sole18@gmail.com',
           message: form.message
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        // import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       )
+      .then(
+        () => {
+          setLoading(false);
+          showAlert({
+            show: true,
+            text: 'Thank you for your message 😃',
+            type: 'success',
+          });
 
-      alert('Your message has been sent successfully!')
+          setTimeout(() => {
+            hideAlert(false);
+            setForm({
+              name: '',
+              email: '',
+              message: '',
+            });
+          }, 3000);
+        },
+        (error) => {
+          setLoading(false);
+          console.error(error);
 
-      setForm({
-        name: '',
-        email: '',
-        message: ''
-      })
-      
-    } catch (error) {
-      console.error(error)
-      alert('An error occurred, please try again later')
-    } finally {
-      setLoading(false)
-    }
+          showAlert({
+            show: true,
+            text: "I didn't receive your message 😢",
+            type: 'danger',
+          });
+
+          setTimeout(() => {
+            hideAlert(false);
+            setForm({
+              name: '',
+              email: '',
+              message: '',
+            });
+          }, 3000);
+        },
+        
+      );
     
   }
 
@@ -53,24 +81,26 @@ export const Contact = () => {
   }
 
   return (
-    <section className="c-space my-20">
-      <div className="bg-hero relative min-h-screen flex items-center justify-center flex-col">
-        {/* <img src="/assets/terminal.png" alt="contact background" className="absolute inset-0 min-h-screen" /> */}
-        
+    <section className="c-space my-20" id="contact">
+      {alert.show && <Alert {...alert} />}
+      
+      <div className="relative min-h-screen flex items-center justify-center flex-col">
+        {/* <img src="/assets/terminal.png" alt="terminal-bg" className="absolute inset-0 min-h-screen" /> */}
+
         <div className="contact-container">
           <h3 className="head-text">Let's talk</h3>
           <p className="text-lg text-white-600 mt-3">
-            Whether you're looking to build a new website, 
-            improve your existing plataform, or  bring a unique project 
-            to life, I'm here to help.
+            Whether you're looking to build a new website, improve your existing platform, or bring a unique project to
+            life, I'm here to help.
           </p>
 
-          <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col space-y-7">
+          <form ref={formRef} onSubmit={handleSubmit} className="mt-8 flex flex-col space-y-5">
             <label className="space-y-3">
               <span className="field-label">Full Name</span>
               <input 
                 className="field-input"
                 name="name"
+                required
                 onChange={handleChange} 
                 placeholder="Berlioz Rod"
                 type="text" 
@@ -85,7 +115,7 @@ export const Contact = () => {
                 name="email"
                 required
                 onChange={handleChange} 
-                placeholder="berlirod@contactme.com"
+                placeholder="contact_me@gmail.com"
                 type="email" 
                 value={form.email} 
                />
@@ -104,14 +134,10 @@ export const Contact = () => {
                />
             </label>
 
-            <button 
-              className="field-btn"
-              disabled={loading}
-              type="submit"
-            >
+            <button className="field-btn" type="submit" disabled={loading}>
               {loading ? 'Sending...' : 'Send Message'}
               <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
-            </button>
+            </button> 
           </form>
         </div>
       </div>
