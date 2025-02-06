@@ -1,8 +1,9 @@
-import { About } from "./sections/About"
-import { Contact } from "./sections/Contact";
-import { Hero } from "./sections/Hero"
-import { Navbar } from "./sections/Navbar"
-import { Projects } from "./sections/Projects"
+import { About } from "@sections/About"
+import { Contact } from "@sections/Contact";
+import { Footer } from "@sections/Footer";
+import { Hero } from "@sections/Hero"
+import { Navbar } from "@sections/Navbar"
+import { Projects } from "@sections/Projects"
 
 export const App = () => {
   return (
@@ -15,6 +16,7 @@ export const App = () => {
         <About />
         <Projects />
         <Contact />
+        <Footer />
       </div>
     </main>
   );

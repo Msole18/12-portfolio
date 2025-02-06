@@ -2,8 +2,8 @@ import { Suspense, useState } from "react"
 import { myProjects } from "../constants"
 import { Canvas } from "@react-three/fiber"
 import { Center, ContactShadows, OrbitControls } from "@react-three/drei"
-import { CanvasLoader } from "../components/CanvasLoader"
-import { DemoComputer } from "../components/DemoComputer"
+import { CanvasLoader } from "@components/CanvasLoader"
+import { DemoComputer } from "@components/DemoComputer"
 
 const projectsCount = myProjects.length
 

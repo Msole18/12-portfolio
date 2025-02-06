@@ -1,5 +1,5 @@
 import Globe from "react-globe.gl"
-import { Button } from "../components/Button"
+import { Button } from "@components/Button"
 import { useState } from "react"
 
 export const About = () => {
