@@ -1,12 +1,12 @@
 import { ContactShadows, Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import { Suspense } from "react"
-import { CanvasLoader } from "../components/CanvasLoader"
+import { CanvasLoader } from "@components/CanvasLoader"
 import { useMediaQuery } from "react-responsive"
 import { calculateSizes } from "../constants"
-import { NotebookModel } from "../components/NotebookModel"
+import { NotebookModel } from "@components/NotebookModel"
 import { Leva } from "leva"
-import { Button } from "../components/Button"
+import { Button } from "@components/Button"
 
 
 export const Hero = () => {

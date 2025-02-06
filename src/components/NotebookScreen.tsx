@@ -1,4 +1,3 @@
-
 export const NotebookScreen = () => {
   return (
     <section className="bg-black h-full w-full flex items-center justify-center" >
