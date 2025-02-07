@@ -115,3 +115,36 @@ export const myProjects = [
     ],
   },
 ]
+
+export const workExperiences = [
+  {
+    id: 1,
+    name: 'GESTIÓN DE PROCESOS Y SERVICIOS S.A.',
+    pos: 'Fiber Optic Project Designer',
+    duration: '2018 - 2024',
+    title:
+      'I led design and implementation projects for FTTH and HFC networks, optimizing planning and execution processes. Additionally, I coordinated the delivery of network upgrade projects, ensuring they were completed on time and contributed to high client satisfaction.',
+    icon: '/assets/framer.svg',
+    animation: 'victory',
+  },
+  {
+    id: 2,
+    name: 'INSOHA C.A.',
+    pos: 'Front-End Developer',
+    duration: '2015 - 2016',
+    title:
+      'As a Front-End Developer, I designed user-centered web interfaces for small business informational websites. My focus was on creating accessible and modern navigation experiences. I implemented solutions using HTML, CSS, and JavaScript, improving interaction flows and facilitating access to key information.',
+    icon: '/assets/notion.svg',
+    animation: 'clapping',
+  },
+  {
+    id: 3,
+    name: 'SERVICIOS Y SUMINISTROS DE ORIENTE C.A.',
+    pos: 'Software Developer',
+    duration: '2014 - 2015',
+    title:
+      'As a Software Developer, I developed a maintenance management application that enhanced the organization and accessibility of database information. I also implemented advanced SQL queries and preventive maintenance strategies, contributing to the efficient performance of critical tools.',
+    icon: '/assets/figma.svg',
+    animation: 'salute',
+  },
+]
