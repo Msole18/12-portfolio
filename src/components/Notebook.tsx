@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Html, useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
@@ -15,9 +15,9 @@ type GLTFResult = GLTF & {
   };
 }
 
-export const NotebookModel = (props: JSX.IntrinsicElements['group']) => {
+export const Notebook = (props: JSX.IntrinsicElements['group']) => {
 
-  const { nodes, materials } = useGLTF('/models/mac-draco.glb') as GLTFResult
+  const { nodes, materials } = useGLTF('/models/notebook.glb') as GLTFResult
   const group = useRef<THREE.Group>(null)
 
   useFrame((state) => {

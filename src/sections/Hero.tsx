@@ -4,9 +4,9 @@ import { Suspense } from "react"
 import { CanvasLoader } from "@components/CanvasLoader"
 import { useMediaQuery } from "react-responsive"
 import { calculateSizes } from "../constants"
-import { NotebookModel } from "@components/NotebookModel"
 import { Leva } from "leva"
 import { Button } from "@components/Button"
+import { Notebook } from "@components/Notebook"
 
 
 export const Hero = () => {
@@ -30,7 +30,7 @@ export const Hero = () => {
               scale={sizes.notebookScale}
               position={sizes.notebookPosition} 
             >
-              <NotebookModel />
+              <Notebook />
             </group>
             <Environment preset="city" />
           </Suspense>
@@ -40,7 +40,7 @@ export const Hero = () => {
       </div>
 
       <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
-        <a href="#contact" className="w-fit" >
+        <a href="#about" className="w-fit" >
           <Button name="Let's work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96" />
         </a>
       </div>
