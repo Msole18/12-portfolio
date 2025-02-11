@@ -30,36 +30,35 @@ type GLTFResult = GLTF & {
   }
 }
 
-export const Developer = ({ animationName = 'idle', ...props}) => {
+// export function Model(props: JSX.IntrinsicElements['group']) {
+export const Developer = ({ animationName = 'idle', ...props }) => {
   const group = useRef<THREE.Group>(null)
-  const { nodes, materials } = useGLTF('/models/developer.glb') as GLTFResult
+    const { nodes, materials } = useGLTF('/models/developer.glb') as GLTFResult
+    
+    const { animations: idleAnimations } = useFBX('/models/animations/idle.fbx')
+    const { animations: saluteAnimations } = useFBX('/models/animations/salute.fbx')
+    const { animations: clappingAnimations } = useFBX('/models/animations/clapping.fbx')
+    const { animations: victoryAnimations } = useFBX('/models/animations/victory.fbx')
   
-  const { animations: idleAnimations } = useFBX('/models/animations/idle.fbx')
-  const { animations: saluteAnimations } = useFBX('/models/animations/salute.fbx')
-  const { animations: clappingAnimations } = useFBX('/models/animations/clapping.fbx')
-  const { animations: victoryAnimations } = useFBX('/models/animations/victory.fbx')
+    idleAnimations[0].name = 'idle'
+    saluteAnimations[0].name = 'salute'
+    clappingAnimations[0].name = 'clapping'
+    victoryAnimations[0].name = 'victory'
+  
+    const { actions } = useAnimations([
+      idleAnimations[0], 
+      saluteAnimations[0],
+      clappingAnimations[0],
+      victoryAnimations[0]
+    ], group)
+    
+    useEffect(() => {
+      actions[animationName]?.reset().fadeIn(0.5).play();
+      return () => {
+        actions[animationName]?.fadeOut(0.5);
+      };
+    }, [animationName]);
 
-  idleAnimations[0].name = 'idle'
-  saluteAnimations[0].name = 'salute'
-  clappingAnimations[0].name = 'clapping'
-  victoryAnimations[0].name = 'victory'
-
-  
-
-  const { actions } = useAnimations([
-    idleAnimations[0], 
-    saluteAnimations[0],
-    clappingAnimations[0],
-    victoryAnimations[0]
-  ], group)
-  
-  useEffect(() => {
-    actions[animationName]?.reset().fadeIn(0.5).play();
-    return () => {
-      actions[animationName]?.fadeOut(0.5);
-    };
-  }, [animationName]);
-  
   return (
     <group {...props} dispose={null} ref={group}>
       <primitive object={nodes.Hips} />
