@@ -77,16 +77,16 @@ export const About = () => {
         {/* My Tech Stack */}
         <div className="xl:col-span-2 xl:row-span-3">
           <div className="grid-container">
-            <Canvas className="w-full h-[276px]">
+            <Canvas className="w-full h-[276px] cursor-pointer">
               <ambientLight intensity={2} />
               <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
               <directionalLight position={[10, 10, 10]} intensity={1} />
                 <Suspense fallback={<CanvasLoader />}>
-                  <group scale={1.5} position={[0, -1.5, 0]} >
-                    <DiceCube />
+                  <group scale={1.8} position={[0, -1.5, 0]} >
+                    <DiceCube  />
                   </group>
                 </Suspense>
-              <OrbitControls maxPolarAngle={Math.PI} enableZoom={false} />
+              <OrbitControls autoRotate autoRotateSpeed={10} maxPolarAngle={Math.PI} enableZoom={false} />
             </Canvas>
             <p className="grid-headtext">
               Tech Stack

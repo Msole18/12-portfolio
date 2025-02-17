@@ -2,6 +2,8 @@ import * as THREE from 'three'
 import { useEffect, useRef } from 'react'
 import { useEnvironment, useGLTF, useTexture } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { useFrame } from '@react-three/fiber'
+import gsap from 'gsap'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -25,15 +27,15 @@ type GLTFResult = GLTF & {
 }
 
 export const DiceCube = (props: JSX.IntrinsicElements['group']) => {
-  const { nodes, materials } = useGLTF('/models/dice-v1.6.glb') as GLTFResult
+  const { nodes, materials } = useGLTF('/models/dice_cube.glb') as GLTFResult
   const group = useRef<THREE.Group>(null)
 
   const meshProps = useTexture({
     faceOneTexture: '/textures/dice/react.png',
-    faceTwoTexture: '/textures/dice/typescript.png',
+    faceTwoTexture: '/textures/dice/threejs.png',
     faceThreeTexture: '/textures/dice/tailwindcss.png',
     faceFourTexture: '/textures/dice/javascript.png',
-    faceFiveTexture: '/textures/dice/threejs.png',
+    faceFiveTexture: '/textures/dice/typescript.png',
     faceSixTexture: '/textures/dice/nodejs.png',
   })
 
@@ -41,6 +43,7 @@ export const DiceCube = (props: JSX.IntrinsicElements['group']) => {
     Object.values(meshProps).forEach((texture) => {
       if (texture instanceof THREE.Texture) {
         texture.colorSpace = THREE.SRGBColorSpace;
+        
       }
     });
   }, [meshProps])
@@ -66,7 +69,7 @@ export const DiceCube = (props: JSX.IntrinsicElements['group']) => {
               map: meshProps.faceOneTexture,
               transparent: true,
               roughness: 0.2,
-              metalness: 0.6,
+              metalness: 0.5,
               envMap: envMap,
             })}
           />
@@ -79,7 +82,7 @@ export const DiceCube = (props: JSX.IntrinsicElements['group']) => {
               map: meshProps.faceTwoTexture,
               transparent: true,
               roughness: 0.2,
-              metalness: 0.6,
+              metalness: 0.5,
               envMap: envMap,
             })}
           />
@@ -92,7 +95,7 @@ export const DiceCube = (props: JSX.IntrinsicElements['group']) => {
               map: meshProps.faceThreeTexture,
               transparent: true,
               roughness: 0.2,
-              metalness: 0.6,
+              metalness: 0.5,
               envMap: envMap,
             })}
           />
@@ -105,7 +108,7 @@ export const DiceCube = (props: JSX.IntrinsicElements['group']) => {
               map: meshProps.faceFourTexture,
               transparent: true,
               roughness: 0.2,
-              metalness: 0.6,
+              metalness: 0.5,
               envMap: envMap,
             })}
           />
@@ -118,7 +121,7 @@ export const DiceCube = (props: JSX.IntrinsicElements['group']) => {
               map: meshProps.faceFiveTexture,
               transparent: true,
               roughness: 0.2,
-              metalness: 0.6,
+              metalness: 0.5,
               envMap: envMap,
             })}
           />
@@ -131,7 +134,7 @@ export const DiceCube = (props: JSX.IntrinsicElements['group']) => {
               map: meshProps.faceSixTexture,
               transparent: true,
               roughness: 0.2,
-              metalness: 0.6,
+              metalness: 0.5,
               envMap: envMap,
             })}
           />
@@ -141,4 +144,4 @@ export const DiceCube = (props: JSX.IntrinsicElements['group']) => {
   )
 }
 
-useGLTF.preload('/models/dice-v1.6.glb')
+useGLTF.preload('/models/dice_cube.glb')
