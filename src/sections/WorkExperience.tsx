@@ -30,7 +30,7 @@ export const WorkExperience = () => {
 
           <div className="work-content">
             <div className="sm:py-10 py-5 sm:px-5 px-2.5">
-            {workExperiences.map(({id, name, pos, icon, duration, title, animation}, index) => (
+            {workExperiences.map(({id, name, pos, icon, duration, title, animation}) => (
               <div 
                 key={id} 
                 className="work-content_container group" 

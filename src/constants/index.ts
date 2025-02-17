@@ -29,7 +29,7 @@ export const calculateSizes = (
   isTablet: boolean
 ): ISizes => {
   return {
-    notebookScale: isSmall ? 0.7 : isMobile ? 0.8 : isTablet ? 0.9 : 1,
+    notebookScale: isSmall ? 0.5 : isMobile ? 0.6 : isTablet ? 0.7 : 0.8,
     notebookPosition: isSmall
       ? [0, 0.5, 0]
       : isMobile
