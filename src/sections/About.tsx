@@ -3,8 +3,8 @@ import { Button } from "@components/Button"
 import { Suspense, useState } from "react"
 import { Canvas } from "@react-three/fiber"
 import { CanvasLoader } from "@components/CanvasLoader"
-import { OrbitControls } from "@react-three/drei"
 import { DiceCube } from "@components/DiceCube"
+import { OrbitControls } from "@react-three/drei"
 
 
 
@@ -79,7 +79,8 @@ export const About = () => {
           <div className="grid-container">
             <Canvas className="w-full h-[276px]">
               <ambientLight intensity={2} />
-              <directionalLight position={[2, 2, 2]} />
+              <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+              <directionalLight position={[10, 10, 10]} intensity={1} />
                 <Suspense fallback={<CanvasLoader />}>
                   <group scale={1.5} position={[0, -1.5, 0]} >
                     <DiceCube />
