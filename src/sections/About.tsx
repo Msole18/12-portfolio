@@ -5,10 +5,19 @@ import { Canvas } from "@react-three/fiber"
 import { CanvasLoader } from "@components/CanvasLoader"
 import { DiceCube } from "@components/DiceCube"
 import { OrbitControls } from "@react-three/drei"
+import { useMediaQuery } from "react-responsive"
+import { calculateSizes } from "src/constants"
+import { Developer } from "@components/Developer"
 
 
 
 export const About = () => {
+  const isSmall = useMediaQuery({ maxWidth: 480 })
+  const isMobile = useMediaQuery({ maxWidth: 768 })
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 })
+
+  const sizes = calculateSizes(isSmall, isMobile, isTablet)
+
   const [hasCopied, setHasCopied] = useState(false)
 
   const handleCopy = () => {
@@ -27,12 +36,10 @@ export const About = () => {
           <div className="grid-container">
             <img
               alt="grid1"
-              className="w-full sm:h-[276px] h-fit object-contain"
+              className="w-5/4 bg-hero sm:h-[276px] h-fit object-contain"
               src="/assets/grid1.png"
             />
-            <p className="grid-headtext">
-              I'm Miguel
-            </p>
+            <p className="grid-headtext">I'm Miguel</p>
             <p className="grid-subtext">
               With a background in electronic engineering and frontend development, I specialize in building clean, responsive, and dynamic React applications
             </p>
@@ -42,7 +49,7 @@ export const About = () => {
         {/* My Passion */}
         <div className="col-span-1 xl:row-span-3">
           <div className="grid-container">
-            <img src="assets/grid3.png" alt="grid-3" className="w-full sm:h-[266px] h-fit object-contain" />
+            <img src="assets/grid2.png" alt="grid-3" className="w-full bg-hero sm:h-[266px] h-fit object-contain" />
             <div>
               <p className="grid-headtext">My Passion for Coding</p>
               <p className="grid-subtext">
@@ -55,7 +62,7 @@ export const About = () => {
         {/* Location */}
         <div className="col-span-1 xl:row-span-4">
           <div className="grid-container">
-            <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
+            <div className="bg-hero rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
               <Globe
                 height={326}
                 width={326}
@@ -77,16 +84,17 @@ export const About = () => {
         {/* My Tech Stack */}
         <div className="xl:col-span-2 xl:row-span-3">
           <div className="grid-container">
-            <Canvas className="w-full h-[276px] cursor-pointer">
+            <Canvas className="w-full bg-hero h-[276px] cursor-pointer">
               <ambientLight intensity={2} />
               <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
               <directionalLight position={[10, 10, 10]} intensity={1} />
-                <Suspense fallback={<CanvasLoader />}>
-                  <group scale={1.8} position={[0, -1.5, 0]} >
-                    <DiceCube  />
-                  </group>
-                </Suspense>
-              <OrbitControls autoRotate autoRotateSpeed={10} maxPolarAngle={Math.PI} enableZoom={false} />
+              <Suspense fallback={<CanvasLoader />}>
+                <group scale={1.8} position={[0, -1.5, 0]} >
+                  <DiceCube />
+                </group>
+              </Suspense>
+              <OrbitControls maxPolarAngle={Math.PI} enableZoom={false} />
+              {/* <OrbitControls autoRotate autoRotateSpeed={1} maxPolarAngle={Math.PI} enableZoom={false} /> */}
             </Canvas>
             <p className="grid-headtext">
               Tech Stack
@@ -102,7 +110,7 @@ export const About = () => {
             <img
               src="assets/grid4.png"
               alt="grid-4"
-              className="w-full md:h-[126px] sm:h-[276px] h-fit object-cover sm:object-top"
+              className="w-full bg-hero md:h-[126px] sm:h-[276px] h-fit object-cover sm:object-top"
             />
 
             <div className="space-y-2">

@@ -4,7 +4,7 @@ import { Xtwitter } from "@components/icons/Xtwitter"
 
 export const Footer = () => {
   return (
-    <section className="s-space pt-7 pb-3 border-t border-black-300 flex justify-between items-center flex-wrap gap-5">
+    <footer className="c-space pt-7 pb-3 border-t border-black-300 flex justify-between items-center flex-wrap gap-5">
       <div className="text-white-500 flex gap-2">
         <p>Terms & Conditions</p>
         <p>|</p>
@@ -22,6 +22,6 @@ export const Footer = () => {
         </a>
       </div>
       <p className="text-white-500">© 2025 Miguel Solé. All rights reserved.</p>
-    </section>
+    </footer>
   )
 }

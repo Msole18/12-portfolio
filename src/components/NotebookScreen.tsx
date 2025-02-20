@@ -6,7 +6,7 @@ export const NotebookScreen = () => {
           Hi, I'm Miguel <span className="waving-hand">👋</span>
         </p>
         <p className="hero_tag text-gray_gradient">
-          Front-End Developer
+          Frontend Developer
         </p>
       </div>
     </section >

@@ -7,7 +7,7 @@ import { workExperiences } from "src/constants"
 
 
 export const WorkExperience = () => {
-  const [animationName, setAnimetionName] = useState('')
+  const [animationName, setAnimetionName] = useState('idle')
 
   return (
     <section className="c-space my-20" id="work">
@@ -15,20 +15,20 @@ export const WorkExperience = () => {
         <p className="head-text">My Work Experience</p>
 
         <div className="work-container">
-          <div className="work-canvas">
+          <div className="work-canvas bg-hero">
             <Canvas>
-              <ambientLight intensity={7} />
+              <ambientLight intensity={2} />
               <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
               <directionalLight position={[10, 10, 10]} intensity={1} />
               <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2.5} />
 
               <Suspense fallback={<CanvasLoader />}>
-                <Developer position-y={-2.5} scale={2.7} animationName={animationName}/>
+                <Developer position-y={-3} scale={2.7} animationName={animationName}/>
               </Suspense>
             </Canvas>
           </div>
 
-          <div className="work-content">
+          <div className="work-content bg-hero">
             <div className="sm:py-10 py-5 sm:px-5 px-2.5">
             {workExperiences.map(({id, name, pos, icon, duration, title, animation}) => (
               <div 

@@ -2,8 +2,9 @@ import * as THREE from 'three'
 import { useEffect, useRef } from 'react'
 import { useEnvironment, useGLTF, useTexture } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { diceTexture } from 'src/constants'
 import { useFrame } from '@react-three/fiber'
-import gsap from 'gsap'
+
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -31,24 +32,29 @@ export const DiceCube = (props: JSX.IntrinsicElements['group']) => {
   const group = useRef<THREE.Group>(null)
 
   const meshProps = useTexture({
-    faceOneTexture: '/textures/dice/react.png',
-    faceTwoTexture: '/textures/dice/threejs.png',
-    faceThreeTexture: '/textures/dice/tailwindcss.png',
-    faceFourTexture: '/textures/dice/javascript.png',
-    faceFiveTexture: '/textures/dice/typescript.png',
-    faceSixTexture: '/textures/dice/nodejs.png',
+    faceOneTexture: diceTexture.faceOne,
+    faceTwoTexture: diceTexture.faceTwo,
+    faceThreeTexture: diceTexture.faceThree,
+    faceFourTexture: diceTexture.faceFour,
+    faceFiveTexture: diceTexture.faceFive,
+    faceSixTexture: diceTexture.faceSix
   })
 
   useEffect(() => {
     Object.values(meshProps).forEach((texture) => {
       if (texture instanceof THREE.Texture) {
-        texture.colorSpace = THREE.SRGBColorSpace;
-        
+        texture.colorSpace = THREE.SRGBColorSpace;        
       }
     });
   }, [meshProps])
 
   const envMap = useEnvironment({ preset: 'city' })
+
+  useFrame(() => {
+    if (group.current) {
+      group.current.rotation.y += 0.01
+    }
+  })
 
   return (
     <group ref={group} {...props} dispose={null}>

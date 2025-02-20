@@ -26,23 +26,16 @@ export const Projects = () => {
       <p className="head-text">My Selected Work</p>
 
       <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full">
-        <div className="flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-black-200">
-          <div className="absolute top-0 right-0">
-            <img
-              alt="spotlight"
-              className="w-full h-96 object-cover rounded-xl"
-              src={currentProject.spotlight}
-            />
-          </div>
-
-          <div className="p-3 backdrop-filer backdrop-blur-3xl w-fit rounded-lg" style={currentProject.logoStyle}>
+        <div className="bg-hero  border-black-300 bg-black-200 rounded-lg flex flex-col gap-5 relative sm:p-10 py-10 ">
+          
+          <div className="bg-neutral-100 bg-opacity-10 p-3 backdrop-filer backdrop-blur-3xl w-fit rounded-lg" >
             <img
               alt="logo"
-              className="w-10 h-10 shadow-sm"
+              className="w-10 h-10"
               src={currentProject.logo}
             />
           </div>
-
+          
           <div className="flex flex-col gap-5 text-white-600 my-5">
             <p className="text-white text-2xl font-semibold animatedText">{currentProject.title}</p>
 

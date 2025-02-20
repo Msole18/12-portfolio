@@ -16,9 +16,9 @@ export const App = () => {
         <About />
         <Projects />
         <WorkExperience />
+      </div>
         <Contact />
         <Footer />
-      </div>
     </main>
   );
 };
