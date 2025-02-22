@@ -15,8 +15,8 @@ export const WorkExperience = () => {
         <p className="head-text">My Work Experience</p>
 
         <div className="work-container">
-          <div className="work-canvas bg-hero">
-            <Canvas>
+          <div className="work-canvas bg-hero ">
+            <Canvas className="cursor-pointer">
               <ambientLight intensity={2} />
               <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
               <directionalLight position={[10, 10, 10]} intensity={1} />
