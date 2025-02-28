@@ -21,7 +21,7 @@ export const Hero = () => {
     <section className="bg-hero min-h-screen w-full flex flex-col relative">
       <div className="w-full h-full absolute inset-0 mt-10" >
         <Leva hidden />
-        <Canvas className="w-full h-full">
+        <Canvas className="w-full h-full cursor-pointer">
           <PerspectiveCamera makeDefault position={[-5, 0, -15]} />
           <pointLight position={[10, 10, 10]} intensity={1.5} />
           <Suspense fallback={<CanvasLoader />}>

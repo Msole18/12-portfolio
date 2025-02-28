@@ -153,6 +153,6 @@ export const workExperiences = [
     title:
       'As a Software Developer, I developed a maintenance management application that enhanced the organization and accessibility of database information. I also implemented advanced SQL queries and preventive maintenance strategies, contributing to the efficient performance of critical tools.',
     icon: '/assets/sso.png',
-    animation: 'rocket',
+    animation: 'animation',
   },
 ]

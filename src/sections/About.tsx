@@ -62,10 +62,10 @@ export const About = () => {
         {/* Location */}
         <div className="col-span-1 xl:row-span-4">
           <div className="grid-container">
-            <div className="bg-hero rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
+            <div className="bg-hero cursor-pointer rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
               <Globe
-                height={326}
-                width={326}
+                height={426}
+                width={426}
                 backgroundColor="rgba(0, 0, 0, 0)"
                 showAtmosphere
                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
