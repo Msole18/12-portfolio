@@ -39,7 +39,7 @@ export const Developer = ({ animationName = 'idle', ...props }) => {
     const { animations: saluteAnimations } = useFBX('/models/animations/salute.fbx')
     const { animations: clappingAnimations } = useFBX('/models/animations/clapping.fbx')
     const { animations: victoryAnimations } = useFBX('/models/animations/thankful.fbx')
-  const { animations: newAnimations } = useFBX('/models/animations/dance.fbx')
+     const { animations: newAnimations } = useFBX('/models/animations/dance.fbx')
   
     idleAnimations[0].name = 'idle'
     saluteAnimations[0].name = 'salute'
