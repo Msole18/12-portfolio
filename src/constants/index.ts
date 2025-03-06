@@ -121,7 +121,7 @@ export const workExperiences = [
     pos: 'Frontend Developer',
     duration: 'Sep 2024 - Present',
     title:
-      'Design and development of optimized and responsive websites. Layout and implementation of dynamic interfaces using React.js and CSS. Performance optimization and user experience improvement.',
+      'As a Frontend Developer, I design and develop optimized, responsive websites. I focus on implementing dynamic interfaces using React.js and CSS, enhancing performance and improving the user experience.',
     icon: '/assets/freelancer.png',
     animation: 'salute',
   },
@@ -133,7 +133,7 @@ export const workExperiences = [
     title:
       'I led design and implementation projects for FTTH and HFC networks, optimizing planning and execution processes. Additionally, I coordinated the delivery of network upgrade projects, ensuring they were completed on time and contributed to high client satisfaction.',
     icon: '/assets/gps.png',
-    animation: 'victory',
+    animation: 'surprised',
   },
   {
     id: 3,
@@ -153,6 +153,6 @@ export const workExperiences = [
     title:
       'As a Software Developer, I developed a maintenance management application that enhanced the organization and accessibility of database information. I also implemented advanced SQL queries and preventive maintenance strategies, contributing to the efficient performance of critical tools.',
     icon: '/assets/sso.png',
-    animation: 'animation',
+    animation: 'looking',
   },
 ]

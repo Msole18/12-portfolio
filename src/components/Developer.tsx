@@ -35,24 +35,24 @@ export const Developer = ({ animationName = 'idle', ...props }) => {
   const group = useRef<THREE.Group>(null)
     const { nodes, materials } = useGLTF('/models/developer.glb') as GLTFResult
     
-    const { animations: idleAnimations } = useFBX('/models/animations/idle.fbx')
-    const { animations: saluteAnimations } = useFBX('/models/animations/salute.fbx')
     const { animations: clappingAnimations } = useFBX('/models/animations/clapping.fbx')
-    const { animations: victoryAnimations } = useFBX('/models/animations/thankful.fbx')
-  const { animations: newAnimations } = useFBX('/models/animations/dance.fbx')
+    const { animations: idleAnimations } = useFBX('/models/animations/idle.fbx') //ok
+    const { animations: lookingAnimations } = useFBX('/models/animations/looking.fbx')
+    const { animations: saluteAnimations } = useFBX('/models/animations/salute.fbx')
+    const { animations: surprisedAnimations } = useFBX('/models/animations/surprised.fbx') // ok
   
-    idleAnimations[0].name = 'idle'
-    saluteAnimations[0].name = 'salute'
     clappingAnimations[0].name = 'clapping'
-    victoryAnimations[0].name = 'victory'
-    newAnimations[0].name = 'animation'
+    idleAnimations[0].name = 'idle'
+    lookingAnimations[0].name = 'looking'
+    saluteAnimations[0].name = 'salute'
+    surprisedAnimations[0].name = 'surprised'
   
     const { actions } = useAnimations([
-      idleAnimations[0], 
-      saluteAnimations[0],
       clappingAnimations[0],
-      victoryAnimations[0],
-      newAnimations[0]
+      idleAnimations[0], 
+      lookingAnimations[0],
+      saluteAnimations[0],
+      surprisedAnimations[0]
     ], group)
     
     useEffect(() => {
