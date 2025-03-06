@@ -24,7 +24,7 @@ This project is a personal portfolio website designed to showcase my projects, w
 ## Installation Instructions
 1. Clone the repository:
   ```bash
-  git clone https://github.com/your-username/12-portfolio.git
+  git clone https://github.com/Msole18/12-portfolio.git
   cd 12-portfolio
   ```
 2. Install the dependencies:
