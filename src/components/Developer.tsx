@@ -36,10 +36,10 @@ export const Developer = ({ animationName = 'idle', ...props }) => {
     const { nodes, materials } = useGLTF('/models/developer.glb') as GLTFResult
     
     const { animations: clappingAnimations } = useFBX('/models/animations/clapping.fbx')
-    const { animations: idleAnimations } = useFBX('/models/animations/idle.fbx') //ok
+    const { animations: idleAnimations } = useFBX('/models/animations/idle.fbx') 
     const { animations: lookingAnimations } = useFBX('/models/animations/looking.fbx')
     const { animations: saluteAnimations } = useFBX('/models/animations/salute.fbx')
-    const { animations: surprisedAnimations } = useFBX('/models/animations/surprised.fbx') // ok
+    const { animations: surprisedAnimations } = useFBX('/models/animations/surprised.fbx') 
   
     clappingAnimations[0].name = 'clapping'
     idleAnimations[0].name = 'idle'
