@@ -5,6 +5,8 @@ interface AlertProps {
 }
 
 export const Alert = ({ show, type, text }: AlertProps) => {
+  if (!show) return null;
+  
   return (
     <div className="fixed bottom-5 right-5 flex justify-center items-center z-50">
       <div

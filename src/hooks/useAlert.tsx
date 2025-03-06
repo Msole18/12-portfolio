@@ -11,7 +11,7 @@ export const useAlert = () => {
     setAlert(alert);
   };
 
-  const hideAlert = (show?: boolean) => { 
+  const hideAlert = () => { 
     setAlert({ show: false, text: '', type: 'success' }) 
   }
 

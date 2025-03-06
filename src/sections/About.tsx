@@ -5,19 +5,8 @@ import { Canvas } from "@react-three/fiber"
 import { CanvasLoader } from "@components/CanvasLoader"
 import { DiceCube } from "@components/DiceCube"
 import { OrbitControls } from "@react-three/drei"
-import { useMediaQuery } from "react-responsive"
-import { calculateSizes } from "src/constants"
-import { Developer } from "@components/Developer"
-
-
 
 export const About = () => {
-  const isSmall = useMediaQuery({ maxWidth: 480 })
-  const isMobile = useMediaQuery({ maxWidth: 768 })
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 })
-
-  const sizes = calculateSizes(isSmall, isMobile, isTablet)
-
   const [hasCopied, setHasCopied] = useState(false)
 
   const handleCopy = () => {
@@ -94,7 +83,6 @@ export const About = () => {
                 </group>
               </Suspense>
               <OrbitControls maxPolarAngle={Math.PI} enableZoom={false} />
-              {/* <OrbitControls autoRotate autoRotateSpeed={1} maxPolarAngle={Math.PI} enableZoom={false} /> */}
             </Canvas>
             <p className="grid-headtext">
               Tech Stack
