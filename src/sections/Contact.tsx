@@ -40,7 +40,7 @@ export const Contact = () => {
           });
 
           setTimeout(() => {
-            hideAlert(false);
+            hideAlert(); 
             setForm({
               name: '',
               email: '',
@@ -59,7 +59,7 @@ export const Contact = () => {
           });
 
           setTimeout(() => {
-            hideAlert(false);
+            hideAlert();
             setForm({
               name: '',
               email: '',
